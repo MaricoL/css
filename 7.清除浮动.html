@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .father{
+            width: 600px;
+            background-color: black;
+            /* 2. 给父盒子添加overflow：hidden 清除浮动*/
+            /*overflow: hidden;*/
+        }
+
+        .son1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            float: left;
+        }
+
+        .son2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            float: right;
+        }
+
+        .other {
+            width: 400px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        /* 3. 用after元素来清除浮动 */
+        .clearfix::after{
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        /* 适合ie 6 7*/
+        .clearfix{
+            *zoom: 1;
+        }
+
+        /* 4. 出发BFC，可以清除浮动 */
+        .clearfix::before,.clearfix::after{
+            content: "";
+            display: table;
+        }
+        .clearfix::after{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="father clearfix">
+
+        <div class="son1"></div>
+        <div class="son2"></div>
+        <!-- 1. 给最后一个浮动的盒子下面添加一个空的div用来清除浮动 -->
+<!--        <div style="clear: both"></div>-->
+    </div>
+
+    <div class="other"></div>
+
+</body>
+</html>

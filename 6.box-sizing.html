@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        div:first-child {
+            box-sizing: content-box;
+            padding-left: 30px;
+
+        }
+
+        /* 标注了box-sizing: border-box;之后，padding值不会对width增加宽度 */
+
+        div:last-child {
+            box-sizing: border-box;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>内容</div>
+    <br/>
+    <div>内容</div>
+
+</body>
+</html>
